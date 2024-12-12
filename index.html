@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>给你的道歉信</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #FFE4E1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: '微软雅黑', sans-serif;
+        }
+        
+        .container {
+            width: 300px;
+            height: 500px;
+            position: relative;
+            border: 2px solid #FF69B4;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+        }
+        
+        .rose-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+            color: #FF0000;
+        }
+        
+        .content {
+            text-align: center;
+            margin-top: 80px;
+            color: #FF69B4;
+        }
+        
+        .message {
+            margin: 15px 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .buttons {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: transform 0.3s;
+        }
+        
+        .forgive-btn {
+            background-color: #FF69B4;
+            color: white;
+        }
+        
+        .forgive-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .no-forgive-btn {
+            background-color: #808080;
+            color: white;
+        }
+        
+        .heart {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 120px;
+            color: #FF0000;
+            display: none;
+            animation: heartBeat 1s infinite;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+        
+        @keyframes heartBeat {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="rose-border">🌹🌹🌹🌹🌹</div>
+        <div class="content">
+            <div class="message">亲爱的朋友：</div>
+            <div class="message">对不起，是我做得不对...</div>
+            <div class="message">我真诚地向你道歉</div>
+            <div class="message">希望你能原谅我</div>
+            <div class="message">我会努力改正自己的错误</div>
+            <div class="message">珍惜我们的友谊</div>
+        </div>
+        <div class="buttons">
+            <button class="btn forgive-btn" onclick="showHeart()">原谅你啦</button>
+            <button class="btn no-forgive-btn" onmouseover="moveButton(this)">不原谅</button>
+        </div>
+    </div>
+    <div class="heart">❤</div>
+
+    <script>
+        function moveButton(btn) {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 40);
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function showHeart() {
+            const heart = document.querySelector('.heart');
+            const container = document.querySelector('.container');
+            container.style.display = 'none';
+            heart.style.display = 'block';
+            setTimeout(() => {
+                window.close();
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
